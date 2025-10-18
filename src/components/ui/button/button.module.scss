@@ -1,0 +1,81 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-8;
+
+  border: 0;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:active {
+    transform: scale(0.95);
+
+    outline: none;
+  }
+
+  span {
+    color: $text-black !important;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Variant styles
+  &--primary {
+    background-color: $surface-white;
+  }
+
+  &--secondary {
+    background-color: $surface-subtle;
+    
+    span {
+      color: $text-default !important;
+    }
+    
+    &:hover:not(:disabled) {
+      background-color: $surface-subtle;
+      border-color: $text-brand-default;
+    }
+
+    svg {
+      color: $text-default !important;
+    }
+    
+    &:active {
+      background-color: $surface-subtle;
+    }
+  }
+
+  // Size variants
+  &--md {
+    padding: $spacing-8 $spacing-14;
+    border-radius: $radius-8;
+  }
+
+  &--lg {
+    padding: $spacing-12 $spacing-16;
+    font-size: 16px;
+    line-height: 1.4;
+    min-height: 48px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__leading-icon,
+  &__trailing-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

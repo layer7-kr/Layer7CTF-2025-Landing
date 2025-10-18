@@ -1,0 +1,1 @@
+export { default as WinnersList } from "./winners-list";
