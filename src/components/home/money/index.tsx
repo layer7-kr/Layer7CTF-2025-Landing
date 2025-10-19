@@ -14,8 +14,16 @@ export default function Money() {
       src: "/images/goods/dreamhack_starter.png",
       alt: "상품 [드림핵 스타터 1년 구독권]",
     },
-    { id: 2, src: "/images/goods/airpods.png", alt: "상품 [AirPods 4 노이즈캔슬링]" },
-    { id: 3, src: "/images/goods/dreamhack_battery.png", alt: "상품 [드림핵 보조배터리]" },
+    {
+      id: 2,
+      src: "/images/goods/airpods.png",
+      alt: "상품 [AirPods 4 노이즈캔슬링]",
+    },
+    {
+      id: 3,
+      src: "/images/goods/dreamhack_battery.png",
+      alt: "상품 [드림핵 보조배터리]",
+    },
     { id: 5, src: "/images/goods/pad.png", alt: "상품 [드림핵 장패드]" },
   ];
 
@@ -360,7 +368,9 @@ export default function Money() {
                     <div className={s.card_row}>
                       <Typo.Body className={s.label}>상품</Typo.Body>
                       <Typo.Body>
-                        {extractGoods(Prize.middle.first.prize)}
+                        <span style={{ whiteSpace: "pre-line" }}>
+                          {extractGoods(Prize.middle.first.prize)}
+                        </span>
                       </Typo.Body>
                     </div>
                   </div>
@@ -378,7 +388,9 @@ export default function Money() {
                     <div className={s.card_row}>
                       <Typo.Body className={s.label}>상품</Typo.Body>
                       <Typo.Body>
-                        {extractGoods(Prize.middle.second.prize)}
+                        <span style={{ whiteSpace: "pre-line" }}>
+                          {extractGoods(Prize.middle.second.prize)}
+                        </span>
                       </Typo.Body>
                     </div>
                   </div>
@@ -396,7 +408,9 @@ export default function Money() {
                     <div className={s.card_row}>
                       <Typo.Body className={s.label}>상품</Typo.Body>
                       <Typo.Body>
-                        {extractGoods(Prize.middle.third.prize)}
+                        <span style={{ whiteSpace: "pre-line" }}>
+                          {extractGoods(Prize.middle.third.prize)}
+                        </span>
                       </Typo.Body>
                     </div>
                   </div>
