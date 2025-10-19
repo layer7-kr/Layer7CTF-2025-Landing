@@ -1,12 +1,10 @@
 import Lottie from "lottie-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-
-import { Button, Typo } from "@/components/ui";
+import { Typo } from "@/components/ui";
 import Spacing from "@/components/ui/spacing";
 import { FlexAlign, VStack } from "@/components/ui/stack";
 import { Competition } from "@/data/competition";
-import { Link } from "@/data/link";
 import { useParallaxAnimation, useScrollAnimation } from "@/hooks";
 
 import s from "./style.module.scss";
@@ -20,7 +18,6 @@ export default function Hero() {
 
   const mapAnimation = useParallaxAnimation();
 
-  // flag 클릭/애니메이션 상태
   const [isFlagClicked, setIsFlagClicked] = useState(false);
   const [isGreenClicked, setIsGreenClicked] = useState(false);
   const [lottieData, setLottieData] = useState<object | null>(null);
@@ -35,7 +32,6 @@ export default function Hero() {
     setIsGreenClicked(true);
   };
 
-  // Lottie JSON 선로딩 (한 번만)
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -52,24 +48,8 @@ export default function Hero() {
     };
   }, []);
 
-  // 접수 기간 확인
   const now = Date.now();
-  const registrationStart = Competition[0].startDate;
-  const registrationEnd = Competition[0].endDate;
 
-  const getRegistrationStatus = () => {
-    if (now < registrationStart) {
-      return "coming-soon";
-    } else if (now >= registrationStart && now <= registrationEnd) {
-      return "open";
-    } else {
-      return "closed";
-    }
-  };
-
-  const registrationStatus = getRegistrationStatus();
-
-  // D-Day 카운트다운
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -79,32 +59,70 @@ export default function Hero() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = registrationStart - Date.now();
+      let targetTime = 0;
 
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
-        const minutes = Math.floor(
-          (difference % (1000 * 60 * 60)) / (1000 * 60),
-        );
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        return { days, hours, minutes, seconds };
+      if (now < Competition[0].startDate) {
+        // 신청 시작 전
+        targetTime = Competition[0].startDate;
+      } else if (now >= Competition[0].startDate && now <= Competition[0].endDate) {
+        // 신청 기간 중
+        targetTime = Competition[0].endDate;
+      } else if (now > Competition[0].endDate && now < Competition[1].startDate) {
+        // 신청 마감 후 대회 시작 전
+        targetTime = Competition[1].startDate;
+      } else if (now >= Competition[1].startDate && now <= Competition[1].endDate) {
+        // 대회 진행 중
+        targetTime = Competition[1].endDate;
+      } else {
+        // 대회 종료 후
+        targetTime = 0;
       }
 
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      const difference = targetTime - Date.now();
+
+      if (difference <= 0) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      }
+
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / (1000 * 60)) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
     };
 
+    setTimeLeft(calculateTimeLeft());
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    setTimeLeft(calculateTimeLeft());
-
     return () => clearInterval(timer);
-  }, [registrationStart]);
+  }, [now]);
+
+  const getStatusText = () => {
+    if (now < Competition[0].startDate) {
+      return "Coming Soon";
+    } else if (now >= Competition[0].startDate && now <= Competition[0].endDate) {
+      return "참가 신청 마감까지";
+    } else if (now > Competition[0].endDate && now < Competition[1].startDate) {
+      return "대회 시작까지";
+    } else if (now >= Competition[1].startDate && now <= Competition[1].endDate) {
+      return "대회 종료까지";
+    } else {
+      return "대회가 종료되었습니다";
+    }
+  };
+
+  const getCurrentStatus = () => {
+    if (now < Competition[0].startDate) return "coming-soon";
+    if (now >= Competition[0].startDate && now <= Competition[0].endDate) return "open";
+    if (now > Competition[0].endDate && now < Competition[1].startDate) return "before-competition";
+    if (now >= Competition[1].startDate && now <= Competition[1].endDate) return "started";
+    return "ended";
+  };
+
+  const registrationStatus = getCurrentStatus();
 
   return (
     <section className={s.hero}>
@@ -157,6 +175,7 @@ export default function Hero() {
             2025 Layer7 CTF
           </motion.h1>
         </VStack>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={
@@ -167,7 +186,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.9 }}
         >
           <div className={s.buttons}>
-            {registrationStatus === "coming-soon" && (
+            {(registrationStatus === "coming-soon" ||
+              registrationStatus === "open" ||
+              registrationStatus === "before-competition" ||
+              registrationStatus === "started") && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={
@@ -179,7 +201,7 @@ export default function Hero() {
                 className={s.countdown_container}
               >
                 <Typo.BodyLarge className={s.coming_soon}>
-                  Coming Soon
+                  {getStatusText()}
                 </Typo.BodyLarge>
                 <Typo.Headline>
                   {timeLeft.days}일 {timeLeft.hours}시간 {timeLeft.minutes}분 {timeLeft.seconds}초
@@ -187,7 +209,7 @@ export default function Hero() {
               </motion.div>
             )}
 
-            {registrationStatus === "open" && (
+            {registrationStatus === "ended" && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={
@@ -196,32 +218,19 @@ export default function Hero() {
                     : { opacity: 0, y: 20 }
                 }
                 transition={{ duration: 0.6, delay: 1.0 }}
+                className={s.countdown_container}
               >
-                <a href={Link.registration} target="_blank">
-                  <Button className={s.ctf_button}>
-                    Layer7 CTF 참가 신청하기
-                  </Button>
-                </a>
-              </motion.div>
-            )}
-
-            {registrationStatus === "closed" && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  textAnimation.isInView
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.6, delay: 1.0 }}
-              >
-                <Typo.Headline className={s.closed}>신청 종료됨</Typo.Headline>
+                <Typo.BodyLarge className={s.coming_soon}>
+                  대회가 종료되었습니다
+                </Typo.BodyLarge>
               </motion.div>
             )}
           </div>
         </motion.div>
       </motion.div>
+
       <Spacing size={120} />
+
       <motion.div
         ref={mapAnimation.ref}
         initial={{ y: 50 }}
@@ -303,7 +312,10 @@ export default function Hero() {
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: [10, 0, -10], opacity: [0, 1, 0] }}
-                  transition={{ duration: 2, ease: "easeOut" }}
+                  transition={{
+                    duration: 2,
+                    ease: "easeOut",
+                  }}
                 >
                   <Typo.Body className={s.flag_text_green}>
                     Layer7{`{0101010101010101010101}`}
