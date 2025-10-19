@@ -11,11 +11,12 @@ export default function Money() {
   const goods = [
     {
       id: 1,
-      src: "/images/goods/dreamhack_stater.png",
-      alt: "상품 [드림핵 1년 구독권]",
+      src: "/images/goods/dreamhack_starter.png",
+      alt: "상품 [드림핵 스타터 1년 구독권]",
     },
-    { id: 2, src: "/images/goods/airpods.png", alt: "상품 [AirPods]" },
-    { id: 4, src: "/images/goods/pad.png", alt: "상품 [DreamHack 장패드]" },
+    { id: 2, src: "/images/goods/airpods.png", alt: "상품 [AirPods 4 노이즈캔슬링]" },
+    { id: 3, src: "/images/goods/dreamhack_battery.png", alt: "상품 [드림핵 보조배터리]" },
+    { id: 5, src: "/images/goods/pad.png", alt: "상품 [드림핵 장패드]" },
   ];
 
   // 아이템 3회 반복 + 두 번째 반복 뒤에 첫 아이템을 한 개 더 삽입해 끊김 최소화
