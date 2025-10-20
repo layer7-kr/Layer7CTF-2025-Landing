@@ -4,7 +4,7 @@ export const Competition = [
   {
     icon: File,
     title: "대회 신청",
-    startDate: new Date("2025-10-21T00:00:00").getTime(),
+    startDate: new Date("2025-10-22T00:00:00").getTime(),
     endDate: new Date("2025-11-12T23:59:59").getTime(),
     description: "대회 참가 신청이 정상적으로 완료된 경우, 이메일로 확인 메일이 발송됩니다. ",
     eligibility: [

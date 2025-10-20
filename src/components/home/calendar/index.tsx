@@ -89,7 +89,7 @@ export default function Calendar() {
               <VStack gap={8}>
                 <Typo.Display className={s.card_title}>신청 기간</Typo.Display>
                 <Typo.Body className={s.card_date}>
-                  10월 21일 ~ 11월 12일
+                  10월 22일 ~ 11월 12일
                 </Typo.Body>
               </VStack>
               <File className={s.card_icon} />
