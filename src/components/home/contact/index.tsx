@@ -119,7 +119,9 @@ export default function Contact() {
                     variants={noticeAnimation.itemVariants}
                   >
                     <HStack gap={8}>
-                      <Typo.Body>{post.metadata.title}</Typo.Body>
+                      <Typo.Body style={{ whiteSpace: "pre-line" }}>
+                        {post.metadata.title}
+                      </Typo.Body>
                       {isRecent(post.metadata.date) && <NewTag />}
                     </HStack>
                     <Typo.Body className={s.notice_date}>

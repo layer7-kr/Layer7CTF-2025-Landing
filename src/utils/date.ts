@@ -1,9 +1,12 @@
-export function getKoreanDate(date: Date): string {
+export function getKoreanDate(date: Date, includeTime: boolean = true): string {
   return date.toLocaleDateString("ko-KR", {
     year: "numeric",
     month: "long",
     day: "numeric",
-    hour: "2-digit",
+    ...(includeTime && {
+      hour: "2-digit",
+      hour12: false,
+    }),
     hour12: false,
   });
 }

@@ -55,8 +55,8 @@ export default function FormAbout() {
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <Typo.BodyLarge>
-                  {getKoreanDate(new Date(Competition[0].startDate))} ~{" "}
-                  {getKoreanDate(new Date(Competition[0].endDate))}
+                  {getKoreanDate(new Date(Competition[0].startDate), false)} ~{" "}
+                  {getKoreanDate(new Date(Competition[0].endDate), false)}
                 </Typo.BodyLarge>
               </motion.div>
             </VStack>
