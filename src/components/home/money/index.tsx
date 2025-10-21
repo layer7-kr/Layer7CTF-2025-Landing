@@ -24,7 +24,12 @@ export default function Money() {
       src: "/images/goods/dreamhack_battery.png",
       alt: "상품 [드림핵 보조배터리]",
     },
-    { id: 5, src: "/images/goods/pad.png", alt: "상품 [드림핵 장패드]" },
+    {
+      id: 4,
+      src: "/images/goods/baemin.png",
+      alt: "상품 [배달의 민족 3만원 상품권]",
+    },
+    { id: 6, src: "/images/goods/pad.png", alt: "상품 [드림핵 장패드]" },
   ];
 
   // 아이템 3회 반복 + 두 번째 반복 뒤에 첫 아이템을 한 개 더 삽입해 끊김 최소화
