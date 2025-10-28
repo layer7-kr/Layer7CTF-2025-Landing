@@ -30,7 +30,7 @@ export default function Home() {
       />
       <Merit
         text="다양한 해킹 분야의 문제"
-        description="Web, Reversing, Pwnable, AI, Misc 총 5개의 분야에 문제가 출제됩니다."
+        description="Web, Reversing, Pwnable, AI, Misc 등 다양한 분야에 문제가 출제됩니다."
         image="/images/merit/n2.png"
         reversed
       />
