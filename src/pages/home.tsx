@@ -9,6 +9,7 @@ import {
   Merit,
   Money,
   Sponsor,
+  Video,
 } from "@/components/home";
 import { Header, Light } from "@/components/ui";
 import Footer from "@/components/ui/footer";

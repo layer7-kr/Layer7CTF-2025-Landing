@@ -34,16 +34,23 @@
 
 .image_container {
     width: 100%;
+    border-radius: $radius-20;
+    overflow: hidden;
+
+    video {
+        width: 100%;
+        aspect-ratio: 16/11;
+        object-fit: cover;
+        border-radius: $radius-20;
+        display: block;
+    }
 }
 
 .image {
     width: 100%;
     aspect-ratio: 16/9;
-
     object-fit: contain;
-
     border-radius: $radius-20;
-
     object-fit: cover;
 }
 
@@ -75,4 +82,5 @@
             height: 24px;
         }
     }
+
 }

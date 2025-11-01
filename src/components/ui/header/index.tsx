@@ -50,7 +50,7 @@ export default function Header() {
           </a>
 
           <HStack gap={10} className={s.header_buttons}>
-            <a href="#contact">
+            <a href={pathname === "/" ? "#contact" : "/#contact"}>
               <Button variant="secondary" className={s.inquiry_button}>
                 문의하기
               </Button>

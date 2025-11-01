@@ -20,7 +20,7 @@ export default function Gallery() {
 
   // 갤러리 이미지 배열 생성
   const galleryImages = useMemo(() => {
-    return Object.entries(galleryModules).map(([path, url], index) => {
+    const images = Object.entries(galleryModules).map(([path, url], index) => {
       const fileName = path.split("/").pop()?.split(".")[0] || "";
       return {
         id: `gallery-${index + 1}`,
@@ -29,8 +29,21 @@ export default function Gallery() {
         title: fileName
           .replace(/[-_]/g, " ")
           .replace(/\b\w/g, (l) => l.toUpperCase()),
+        type: "image" as const,
       };
     });
+    
+    // 비디오를 첫 번째 항목으로 추가
+    return [
+      {
+        id: "gallery-video",
+        src: "/asd.mp4",
+        alt: "Layer7 CTF 영상",
+        title: "Layer7 CTF",
+        type: "video" as const,
+      },
+      ...images,
+    ];
   }, []);
 
   // 다음 이미지로 이동
@@ -59,12 +72,24 @@ export default function Gallery() {
         <div style={{ width: "100%" }}>
           <VStack gap={24} fullWidth>
             <div className={s.image_container} tabIndex={0}>
-              <img
-                src={galleryImages[currentIndex].src}
-                alt={galleryImages[currentIndex].alt}
-                className={s.image}
-                loading="lazy"
-              />
+              {galleryImages[currentIndex].type === "video" ? (
+                <video
+                  src={galleryImages[currentIndex].src}
+                  className={s.image}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                />
+              ) : (
+                <img
+                  src={galleryImages[currentIndex].src}
+                  alt={galleryImages[currentIndex].alt}
+                  className={s.image}
+                  loading="lazy"
+                />
+              )}
             </div>
 
             <HStack
