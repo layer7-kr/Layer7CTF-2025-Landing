@@ -73,25 +73,25 @@ export default function Sponsor() {
               </HStack>
             </VStack>
           </motion.div>
-          {/* <motion.div variants={sponsorAnimation.itemVariants}>
+          <motion.div variants={sponsorAnimation.itemVariants}>
             <VStack gap={24} align={FlexAlign.Center}>
               <div className={`${s.sponsor_title} ${s.gold}`}>
                 <Typo.Body>Gold Sponsor</Typo.Body>
               </div>
-              <VStack gap={18} align={FlexAlign.Center}>
+              <HStack
+                gap={20}
+                align={FlexAlign.Center}
+                className={s.sponsor_images}
+              >
                 <motion.img
-                  src="/images/sponsor/theori.png"
-                  alt="Theori sponsor"
+                  src="/images/sponsor/enki_whitehat.png"
+                  alt="ENKI Whitehat sponsor"
                   transition={{ duration: 0.3 }}
+                  style={{ height: 55, filter: "brightness(0) invert(1)" }}
                 />
-                <motion.img
-                  src="/images/sponsor/hspace.png"
-                  alt="Hspace sponsor"
-                  transition={{ duration: 0.3 }}
-                />
-              </VStack>
+              </HStack>
             </VStack>
-          </motion.div> */}
+          </motion.div>
         </VStack>
       </motion.div>
     </Section>

@@ -26,6 +26,11 @@
 .sponsor_title {
     border-radius: $radius-10;
     padding: $radius-8 $radius-14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    box-sizing: border-box;
 
     span {
         color: $text-black;
