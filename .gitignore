@@ -5,13 +5,6 @@
 /commitlint.config.js
 /eslint.config.js
 /prettier.config.js
-/tsconfig.json
-/tsconfig.node.json
-/tsconfig.app.json
-/vite.config.ts
-/index.html
-/favicon.ico
-/thumbnail.png
 .env
 .env.local
 .env.development.local
