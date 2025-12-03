@@ -1,0 +1,280 @@
+.hero {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: $spacing-64 $padding;
+}
+
+.hero_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-32;
+
+    .hero_title, .hero_subtitle {
+        font-weight: 400;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+    }
+
+    .hero_title {
+        font-size: 78px;
+
+        text-align: center;
+
+        z-index: 99;
+    }
+
+    .hero_subtitle {
+        font-size: 40px;
+        letter-spacing: 2px;
+
+        color: $text-subtle;
+    }
+
+    .hero_description {
+        color: $text-subtle;
+        font-weight: 400;
+    }
+}
+
+.hero_map_container {
+    width: 100%;
+    position: relative;
+
+    animation: fadeIn 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.hero_map_inner {
+    opacity: 0; // prevent SSR/initial flash
+}
+
+.hero_map {
+    width: 100%;
+    height: 420px;
+    object-fit: contain;
+    position: relative;
+
+    opacity: 0.3;
+}
+
+.hero_map_overlay {
+    width: 100%;
+    height: 130px;
+
+    margin-top: -130px;
+
+    background: linear-gradient(to bottom, transparent, $surface-default);
+
+    z-index: 1;
+}
+
+.buttons {
+    margin-top: $spacing-16;
+    display: flex;
+    gap: $spacing-14;
+    justify-content: center;
+}
+
+.countdown_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-10;
+}
+
+.coming_soon {
+    color: $text-subtle;
+}
+
+.countdown {
+    color: $text-default;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.closed {
+    color: $text-subtle;
+    font-weight: 500;
+    text-align: center;
+}
+
+.hero_flag {
+    position: absolute;
+    top: -30px;
+    left: calc(50% + 70px);
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.hero_flag_green {
+    position: absolute;
+    top: 30px; // 위치 약간 다르게
+    left: calc(50% - 160px);
+    transform: translateX(-50%);
+    object-fit: contain;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.flag_wrap {
+    position: absolute;
+    top: -30px;
+    left: calc(50% + 70px);
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 120px; // 기본 크기, 실제 렌더링에서 img 크기에 맞게 겹침
+    height: 120px;
+}
+
+.flag_wrap_green {
+    position: absolute;
+    top: -20px; // 위치 약간 다르게
+    left: calc(50% - 120px);
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 120px;
+    height: 120px;
+}
+
+.flag_lottie {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flag_text {
+    position: absolute;
+    top: 25px;
+    left: -40px;
+}
+
+.flag_text_green {
+    position: absolute;
+    top: 18px;
+    left: -20px;
+}
+
+@media (max-width: 1440px) {
+    .hero_flag {
+        top: 0px;
+    }
+    .hero_flag_green {
+        top: 40px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .hero_flag {
+        top: 20px;
+    }
+    .hero_flag_green {
+        top: 60px;
+    }
+}
+
+@media (max-width: 1110px) {
+    .hero_flag {
+        top: 40px;
+        left: calc(50% + 50px);
+    }
+    .hero_flag_green {
+        top: 90px;
+        left: calc(50% - 120px);
+    }
+}
+
+@media (max-width: 970px) {
+    .hero_flag {
+        top: 65px;
+        left: calc(50% + 40px);
+    }
+    .hero_flag_green {
+        top: 100px;
+        left: calc(50% - 90px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: $spacing-32 $padding;
+    }
+
+    .hero_flag {
+        top: 40px;
+    }
+    .hero_flag_green {
+        top: 50px;
+        left: calc(50% - 100px);
+    }
+    
+    .hero_text {
+        gap: $spacing-24;
+        
+        .hero_title {
+            font-size: 48px;
+            letter-spacing: -1px;
+        }
+        
+        .hero_subtitle {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .hero_description {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    
+    .hero_map {
+        height: 280px;
+    }
+    
+    .hero_map_overlay {
+        height: 80px;
+        margin-top: -80px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: $spacing-12;
+        width: 100%;
+        
+        button {
+            width: 100%;
+        }
+    }
+    
+    .countdown_container {
+        gap: $spacing-8;
+    }
+    
+    .countdown {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    
+    .coming_soon {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,79 @@
+@import "@/styles/variables.scss";
+
+.button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-32;
+}
+
+.modal_content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close_button {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: $text-default;
+    cursor: pointer;
+    padding: $spacing-8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-full;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    display: block;
+    border-radius: $radius-16;
+}
+
+@media (max-width: 768px) {
+    .modal_overlay {
+        padding: $spacing-16;
+    }
+
+    .close_button {
+        top: -35px;
+        right: -5px;
+    }
+
+    .video {
+        border-radius: $radius-12;
+    }
+}
+

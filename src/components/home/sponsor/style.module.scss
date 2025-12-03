@@ -1,0 +1,82 @@
+.sponsor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-64;
+
+    padding-inline: $spacing-32;
+}
+
+.sponsor_text {
+    color: $text-subtle;
+}
+
+.sponsor_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-32;
+}
+
+.layer7, .sunrin {
+    width: 30px;
+    aspect-ratio: 1/1;
+}
+
+.sponsor_title {
+    border-radius: $radius-10;
+    padding: $radius-8 $radius-14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    box-sizing: border-box;
+
+    span {
+        color: $text-black;
+    }
+}
+
+.diamond {
+    background: #B1BFFF;
+}
+
+.gold {
+    background: #E3D057;
+}
+
+.hosting {
+    display: flex;
+    gap: $spacing-48;
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: $spacing-24;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsor_wrap {
+        gap: $spacing-24;
+    }
+    
+    .sponsor_text {
+        text-align: center;
+        font-size: 14px;
+    }
+    
+    .layer7, .sunrin {
+        width: 24px;
+    }
+    
+    .sponsor_title {
+        padding: $spacing-6 $spacing-10;
+        font-size: 14px;
+    }
+
+    .sponsor_images {
+        flex-direction: column;
+        gap: $spacing-12;
+    }
+}

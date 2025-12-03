@@ -1,0 +1,99 @@
+.arcodian {
+  width: 100%;
+
+  padding-block: $spacing-32;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-32;
+  
+  border-bottom: 1px solid $border-default;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.icon_button {
+  width: 55px;
+  height: 55px;
+
+  background-color: $surface-subtlest;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: $radius-full;
+  border: 0;
+
+  svg {
+    color: $text-default;
+
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.divisions {
+  display: flex;
+  gap: $spacing-32;
+}
+
+.division {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+}
+
+.winners {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-24;
+}
+
+.winner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.division_title {
+    color: $text-subtle;
+}
+
+@media (max-width: 768px) {
+    .arcodian {
+        padding-block: $spacing-24;
+        gap: $spacing-24;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .icon_button {
+        width: 45px;
+        height: 45px;
+        
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    
+    .divisions {
+        flex-direction: column;
+        gap: $spacing-24;
+    }
+    
+    .winners {
+        gap: $spacing-16;
+    }
+}

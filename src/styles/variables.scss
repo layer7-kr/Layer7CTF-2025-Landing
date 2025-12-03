@@ -1,0 +1,60 @@
+$padding: 32px;
+
+// 모바일 환경에서 padding 값 덮어씌우기
+@media (max-width: 768px) {
+    $padding: 22px;
+}
+
+$max-width: 1200px;
+
+$spacing-4: 4px;
+$spacing-6: 6px;
+$spacing-8: 8px;
+$spacing-10: 10px;
+$spacing-12: 12px;
+$spacing-14: 14px;
+$spacing-16: 16px;
+$spacing-20: 20px;
+$spacing-24: 24px;
+$spacing-32: 32px;
+$spacing-40: 40px;
+$spacing-48: 48px;
+$spacing-64: 64px;
+$spacing-100: 100px;
+$spacing-150: 150px;
+
+$radius-4: 4px;
+$radius-8: 8px;
+$radius-10: 10px;
+$radius-12: 12px;
+$radius-14: 14px;
+$radius-16: 16px;
+$radius-20: 20px;
+$radius-32: 32px;
+$radius-64: 64px;
+$radius-full: 9999px;
+
+$text-default: #FFFFFF;
+$text-subtle: #858585;
+$text-black: #000000;
+
+$text-brand-default: #17F58A;
+$text-brand-heavy: #14CB73;
+$text-brand-subtle: #EDFFF6;
+
+$surface-default: #131313;
+$surface-subtle: #363636;
+$surface-subtlest: #202020;
+$surface-white: #FFFFFF;
+$surface-white-subtle: #e0e0e0;
+
+$surface-brand-default: #17F58A;
+$surface-brand-heavy: #14CB73;
+$surface-brand-subtle: #EDFFF6;
+
+$border-default: #303030;
+$border-subtle: #EFEFEF;
+
+// Font Families
+$font-primary: "Pretendard", sans-serif;
+$font-mono: "Geist Mono Variable", monospace;

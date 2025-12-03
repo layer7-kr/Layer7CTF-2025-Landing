@@ -1,0 +1,14 @@
+.container {
+    padding: $spacing-100 $padding;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: $spacing-48 $padding;
+    }
+}

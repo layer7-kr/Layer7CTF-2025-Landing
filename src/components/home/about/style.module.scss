@@ -1,0 +1,154 @@
+.container {
+    width: min(100%, $max-width);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-100;
+
+    padding-block: $padding;
+}
+
+.about_description {
+    color: $text-subtle;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.history_wrap {
+    width: 80%;
+
+    border: 0;
+    border-bottom: 4px solid $border-default;
+    border-style: dashed;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.history {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-24;
+
+    margin-bottom: -10px;
+}
+
+.history_name {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: $spacing-10;
+
+    padding: $spacing-14 $spacing-16;
+
+    border-radius: $radius-16;
+
+    background-color: $surface-subtlest;
+}
+
+.current {
+    background-color: $surface-white;
+    span {
+        color: $text-black;
+    }
+}
+
+.history_image {
+    width: 24px;
+    height: 24px;
+}
+
+.history_date {
+    color: $text-subtle;
+}
+
+.history_dot {
+    width: 20px;
+    height: 20px;
+
+    background-color: $surface-white;
+
+    outline: 9px solid $border-default;
+
+    border-radius: $radius-full;
+}
+
+@media (max-width: 900px) {
+    .container {
+        gap: $spacing-48;
+        padding-block: $spacing-32;
+        align-items: flex-start;
+    }
+    
+    .about_description {
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: left;
+        padding-inline: 0;
+    }
+    
+    .history_wrap {
+        width: 100%;
+        flex-direction: column;
+        border-bottom: 0px;
+        border-left: 2px solid $border-default;
+        border-style: dashed;
+        padding-left: 24px;
+        gap: $spacing-32;
+        align-items: flex-start;
+    }
+    
+    .history {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $spacing-8;
+        margin-bottom: 0;
+        margin-left: -24px;
+        width: 100%;
+        position: relative;
+    }
+    
+    .history_name {
+        padding: $spacing-10 $spacing-12;
+        font-size: 16px;
+        flex-shrink: 0;
+        text-align: left;
+        margin-left: 32px;
+        padding: $spacing-16 $spacing-20;
+    }
+    
+    .history_image {
+        width: 20px;
+        height: 20px;
+    }
+
+    .history_name_text {
+        font-size: 20px;
+    }
+    
+    .history_date {
+        font-size: 18px;
+        margin-top: 0;
+        text-align: left;
+        margin-left: 32px;
+    }
+    
+    .history_dot {
+        width: 16px;
+        height: 16px;
+        background-color: $surface-white;
+        border: 1px solid $border-default;
+        border-radius: $radius-full;
+        position: absolute;
+        top: 12px;
+        transform: translateX(-50%);
+    }
+}

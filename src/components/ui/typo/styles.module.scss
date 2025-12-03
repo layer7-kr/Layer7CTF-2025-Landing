@@ -1,0 +1,44 @@
+// Typo 컴포넌트 스타일
+// 이미지에 보이는 Ag 타이포그래피 스타일을 기반으로 작성
+
+.display {
+  font-size: 26px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.headline {
+  /* PC 기준 최대값을 유지하고, 화면 크기에 따라 유동적으로 축소 */
+  font-size: clamp(24px, 5vw, 46px);
+  line-height: clamp(32px, 6.5vw, 62px);
+  font-weight: 500;
+  word-break: keep-all;
+}
+
+.bodyLarge {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 400;
+  word-break: keep-all;
+}
+
+.body {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  word-break: keep-all;
+}
+
+.subtext {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  word-break: keep-all;
+}
+
+.caption {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  word-break: keep-all;
+}
