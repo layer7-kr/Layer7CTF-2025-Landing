@@ -19,25 +19,24 @@ export interface WinnersData {
   [year: string]: YearWinners;
 }
 
-// 샘플 데이터
 export const Winners: WinnersData = {
-  // "2025": {
-  //   adult: {
-  //     first: { name: "???" },
-  //     second: { name: "???" },
-  //     third: { name: "???" },
-  //   },
-  //   highSchool: {
-  //     first: { name: "???" },
-  //     second: { name: "???" },
-  //     third: { name: "???" },
-  //   },
-  //   middleSchool: {
-  //     first: { name: "???" },
-  //     second: { name: "???" },
-  //     third: { name: "???" },
-  //   },
-  // },
+  "2025": {
+    adult: {
+      first: { name: "볼다기호로록" },
+      second: { name: "poppo25" },
+      third: { name: "Predic" },
+    },
+    highSchool: {
+      first: { name: "Unbbal" },
+      second: { name: "pandas" },
+      third: { name: "yeonba" },
+    },
+    middleSchool: {
+      first: { name: "aod_jo" },
+      second: { name: "사각형의 내각의 합은 180도 너무 당연한걸 칠판에 썼네" },
+      third: { name: "comet" },
+    },
+  },
   "2024": {
     adult: {
       first: { name: "clay419" },
