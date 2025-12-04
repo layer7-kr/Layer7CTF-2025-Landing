@@ -9,7 +9,6 @@ export const ProblemSetters: { [year: string]: ProblemSetter[] } = {
     { name: "문시우", role: "Layer7 17기 부장" },
     { name: "안건희", role: "Layer7 17기 부부장" },
     { name: "권민성", role: "Layer7 17기" },
-    { name: "이진헌", role: "Layer7 17기" },
     { name: "정경빈", role: "Layer7 17기" },
     { name: "김현식", role: "Layer7 20기 부장" },
     { name: "맹서현", role: "Layer7 22기 부부장" },
